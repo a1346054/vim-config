@@ -27,7 +27,7 @@ let g:indexer_debugLogLevel = 2
 
 " Get Vundle up and running
 set nocompatible
-filetype off 
+filetype off
 
 call plug#begin('~/.vim/plugged')
 " Plug 'bfredl/nvim-miniyank'
@@ -108,7 +108,7 @@ set vb
 " Allow backspacing over indent, eol, and the start of an insert
 set backspace=2
 
-" Make sure that unsaved buffers that are to be put in the background are 
+" Make sure that unsaved buffers that are to be put in the background are
 " allowed to go in there (ie. the "must save first" error doesn't come up)
 set hidden
 
@@ -276,9 +276,9 @@ nmap <silent> ,n :nohls<CR>
 " put the vim directives for my file editing settings in
 nmap <silent> ,vi ovim:set ts=2 sts=2 sw=2:<CR>vim600:fdm=marker fdl=1 fdc=0:<ESC>
 
-" The following beast is something i didn't write... it will return the 
+" The following beast is something i didn't write... it will return the
 " syntax highlighting group that the current "thing" under the cursor
-" belongs to -- very useful for figuring out what to change as far as 
+" belongs to -- very useful for figuring out what to change as far as
 " syntax highlighting goes.
 nmap <silent> ,qq :echo "hi<" . synIDattr(synID(line("."),col("."),1),"name") . '> trans<' . synIDattr(synID(line("."),col("."),0),"name") . "> lo<" . synIDattr(synIDtrans(synID(line("."),col("."),1)),"name") . ">"<CR>
 
@@ -296,7 +296,7 @@ cnoremap <C-A>      <Home>
 cnoremap <C-B>      <Left>
 cnoremap <C-E>      <End>
 cnoremap <C-F>      <Right>
-cnoremap <C-N>      <End>
+cnoremap <C-N>      <Down>
 cnoremap <C-P>      <Up>
 cnoremap <ESC>b     <S-Left>
 cnoremap <ESC><C-B> <S-Left>
@@ -958,7 +958,7 @@ function! RedirToYankRegisterF(cmd, ...)
   redir END
 endfunction
 
-command! -complete=command -nargs=+ RedirToYankRegister 
+command! -complete=command -nargs=+ RedirToYankRegister
       \ silent! call RedirToYankRegisterF(<f-args>)
 
 function! ToggleMinimap()
